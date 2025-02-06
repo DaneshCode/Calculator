@@ -10,6 +10,6 @@ This project is a simple web calculator built using HTML, CSS, and JavaScript. I
 - 🌗 **Light and Dark Theme:** Toggle between light and dark modes for user comfort
 
 ## 🛠️ Usage
-1. Open the `Cal.html` file in your browser.
+1. Open the `https://daneshcode.github.io/Calculator/` file in your browser.
 2. Use the buttons to input numbers and perform various operations.
 3. Results will be displayed on the same page.
