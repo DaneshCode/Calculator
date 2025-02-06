@@ -3,6 +3,18 @@ function dark() {
   document.body.style.color = '#ffffff';
   updateElementColor('result', '#ffffff');
   updateElementColor('00', '#ffffff');
+  document.getElementById('sign').style.color = '#ffffff';
+  document.getElementById('n1').style.color = '#ffffff';
+  document.getElementById('n2').style.color = '#ffffff';
+  document.getElementById('n3').style.color = '#ffffff';
+  document.getElementById('n4').style.color = '#ffffff';
+  document.getElementById('n5').style.color = '#ffffff';
+  document.getElementById('javab').style.color = '#ffffff';
+  document.getElementById('res').style.color = '#ffffff';
+  document.getElementById('result').style.color = '#ffffff';
+  document.getElementById('to_celsius').style.color = '#ffffff';
+  document.getElementById('output').style.color = '#ffffff';
+  document.getElementById('aval').style.color = '#ffffff';
 }
 
 function white() {
@@ -10,6 +22,17 @@ function white() {
   document.body.style.color = '';
   updateElementColor('result', '');
   updateElementColor('00', '');
+  document.getElementById('sign').style.color = '';
+  document.getElementById('n1').style.color = '';
+  document.getElementById('n2').style.color = '';
+  document.getElementById('n3').style.color = '';
+  document.getElementById('n4').style.color = '';
+  document.getElementById('n5').style.color = '';
+  document.getElementById('javab').style.color = '';
+  document.getElementById('res').style.color = '';
+  document.getElementById('result').style.color = '';
+  document.getElementById('to_celsius').style.color = '';
+  document.getElementById('output').style.color = '';
 }
 
 function updateElementColor(id, color) {
