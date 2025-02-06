@@ -12,7 +12,7 @@ This project is a simple web calculator built using HTML, CSS, and JavaScript. I
 ## 💻 Live Demo
 You can view the live demo of the calculator by clicking the link below:
 
-[🔗 Open the Calculator](https://daneshcode.github.io/Calculator)
+<a href="https://daneshcode.github.io/Calculator/" target="_blank">🔗 Open the Calculator</a>
 
 2. Use the buttons to input numbers and perform various operations.
 3. Results will be displayed on the same page.
