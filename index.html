@@ -3,13 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../index assets/css/css.css" />
     <link rel="stylesheet" href="./style.css" />
-    <link
-      rel="icon"
-      href="../../html-css mini project/maghaleh project/images/favicon.png"
-      type="image/x-icon"
-    />
     <!--==================== UNICONS ====================-->
     <link
       rel="stylesheet"
@@ -18,7 +12,7 @@
     <title>ماشین حساب</title>
   </head>
 
-  <body dir="rtl">
+  <body>
     <header>
       <button id="themeButton_1" title="تغییر به صفحه تیره" onclick="dark()">
         Dark
@@ -29,59 +23,32 @@
     </header>
     <div class="calculator">
       <h1>ماشین حساب</h1>
+      <br /><br />
 
       <input id="n1" type="number" placeholder=" : عدد بده" />
       <output id="sign">?</output>
       <input id="n2" type="number" placeholder=" : عدد بعدی بده" />
       <output>=</output>
       <output id="javab">javab</output>
-
-      <br />
-      <br />
-
-      <button
-        type="button"
-        style="padding-bottom: 0px; padding-top: 0px"
-        title="جمع"
-        onclick="calculator('+')"
-      >
-        +
-      </button>
-      <button
-        type="button"
-        style="padding-bottom: 0px; padding-top: 0px"
-        title="تفریق"
-        onclick="calculator('-')"
-      >
-        -
-      </button>
-      <button
-        type="button"
-        style="padding-bottom: 0px; padding-top: 0px"
-        title="ضرب"
-        onclick="calculator('*')"
-      >
-        *
-      </button>
-      <button
-        type="button"
-        style="padding-bottom: 0px; padding-top: 0px"
-        title="تقسیم"
-        onclick="calculator('/')"
-      >
-        /
-      </button>
+      <br /><br /><br />
+      <div>
+        <button type="button" title="جمع" onclick="calculator('+')">
+          <i class="uil-plus"></i>
+        </button>
+        <button type="button" title="تفریق" onclick="calculator('-')">
+          <i class="uil uil-minus"></i>
+        </button>
+        <button type="button" title="ضرب" onclick="calculator('*')">
+          <i class="uil uil-multiply"></i>
+        </button>
+        <button type="button" title="تقسیم" onclick="calculator('/')">/</button>
+      </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
+    <br /><br /><br /><br /><br />
     <div class="mazrab">
       <input id="n3" type="number" placeholder=" : عدد بده" />
       <input id="n4" type="number" placeholder=" : مضرب از" />
       <input id="n5" type="number" placeholder=" : مضرب تا" />
-      <br />
-      <br />
       <button type="button" title="اجرا" onclick="mazrab()">اجرا</button>
 
       <p id="res"></p>
@@ -102,6 +69,7 @@
       <button type="button" title="اجرا" onclick="far_to_cel()">اجرا</button>
       <div id="far_to_celsius"></div>
     </div>
+    <br /><br /><br />
 
     <footer>
       <a
@@ -124,7 +92,7 @@
       |
       <a
         id="6"
-        href="https://t.me/dani_4444"
+        href="https://t.me/Menasheh_kh"
         class="button"
         title="تلگرام"
         target="_blank"
@@ -141,20 +109,19 @@
       ></a>
       |
       <a
-        href="../../index.html"
+        href="https://github.com/DaneshCode"
         class="button"
-        title=" صفحه اصلی "
+        title=" گیت هاب "
         target="_self"
       >
-        صفحه اصلی
-      </a>
+        <i class="uil uil-github"></i> </a
+      >|
 
       <button title="پرینت از صفحه" onclick="window.print()">
         <i class="uil uil-print"></i>
       </button>
     </footer>
-
-    <script src="../../index assets/javascript/java script.js"></script>
+    <br /><br /><br /><br />
     <script src="./cal.js"></script>
   </body>
 </html>

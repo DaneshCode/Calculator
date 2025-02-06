@@ -1,26 +1,47 @@
+function dark() {
+  document.body.style.backgroundColor = '#353535';
+  document.body.style.color = '#ffffff';
+  updateElementColor('result', '#ffffff');
+  updateElementColor('00', '#ffffff');
+}
+
+function white() {
+  document.body.style.backgroundColor = '';
+  document.body.style.color = '';
+  updateElementColor('result', '');
+  updateElementColor('00', '');
+}
+
+function updateElementColor(id, color) {
+  var element = document.getElementById(id);
+  if (element) {
+    element.style.color = color;
+  }
+}
+
 function calculator(op) {
-  var n1 = parseFloat(document.getElementById("n1").value);
-  var n2 = parseFloat(document.getElementById("n2").value);
-  var sign = document.getElementById("sign");
-  var javab = document.getElementById("javab");
+  var n1 = parseFloat(document.getElementById('n1').value);
+  var n2 = parseFloat(document.getElementById('n2').value);
+  var sign = document.getElementById('sign');
+  var javab = document.getElementById('javab');
 
   sign.innerHTML = op;
 
   switch (op) {
-    case "+":
+    case '+':
       javab.textContent = n1 + n2;
       break;
-    case "-":
+    case '-':
       javab.textContent = n1 - n2;
       break;
-    case "*":
+    case '*':
       javab.textContent = n1 * n2;
       break;
-    case "/":
+    case '/':
       javab.textContent = n1 / n2;
       break;
     default:
-      javab.textContent = "!عملگر نامعتبر!";
+      javab.textContent = '!عملگر نامعتبر!';
       break;
   }
 
@@ -28,77 +49,55 @@ function calculator(op) {
 }
 
 function changeColor() {
-  if (n1.value > 0) {
-    n1.style.color = "green";
-  } else {
-    n1.style.color = "red";
-  }
+  updateInputColor('n1');
+  updateInputColor('n2');
+  updateInputColor('n3');
+  updateInputColor('n4');
+  updateInputColor('n5');
+  updateOutputColor('javab');
+  updateOutputColor('res');
+}
 
-  if (n2.value > 0) {
-    n2.style.color = "green";
-  } else {
-    n2.style.color = "red";
+function updateInputColor(id) {
+  var input = document.getElementById(id);
+  if (input) {
+    input.style.color = input.value > 0 ? 'green' : 'red';
   }
+}
 
-  if (n3.value > 0) {
-    n3.style.color = "green";
-  } else {
-    n3.style.color = "red";
-  }
-
-  if (n4.value > 0) {
-    n4.style.color = "green";
-  } else {
-    n4.style.color = "red";
-  }
-
-  if (n5.value > 0) {
-    n5.style.color = "green";
-  } else {
-    n5.style.color = "red";
-  }
-
-  if (javab.textContent > 0) {
-    javab.style.color = "green";
-  } else {
-    javab.style.color = "red";
-  }
-  if (res.textContent > 0) {
-    res.style.color = "green";
-  } else {
-    res.style.color = "red";
+function updateOutputColor(id) {
+  var output = document.getElementById(id);
+  if (output) {
+    output.style.color = parseFloat(output.textContent) > 0 ? 'green' : 'red';
   }
 }
 
 function mazrab() {
-  var n3 = parseFloat(document.getElementById("n3").value);
-  var n4 = parseFloat(document.getElementById("n4").value);
-  var n5 = parseFloat(document.getElementById("n5").value);
-  var res = document.getElementById("res");
-  var result = document.getElementById("result");
+  var n3 = parseFloat(document.getElementById('n3').value);
+  var n4 = parseFloat(document.getElementById('n4').value);
+  var n5 = parseFloat(document.getElementById('n5').value);
+  var res = document.getElementById('res');
+  var result = document.getElementById('result');
 
   if (n5 < n4) {
-    res.innerHTML = "خطا ! مضرب نهایی نباید از مضرب اولیه کوچک تر باشد";
+    res.innerHTML = 'خطا ! مضرب نهایی نباید از مضرب اولیه کوچک تر باشد';
   } else {
-    res.innerHTML = "";
-
+    res.innerHTML = '';
     for (var i = n4; i <= n5; i++) {
-      res.innerHTML += "<br>" + n3 * i; //res.innerHTML = res.innerHTML + "<br>" + ...
+      res.innerHTML += '<br>' + n3 * i;
     }
-
-    result.innerHTML = "done ! ";
+    result.innerHTML = 'done ! ';
   }
 
   changeColor();
 }
 
 function aval() {
-  var aval = parseFloat(document.getElementById("aval").value);
+  var aval = parseFloat(document.getElementById('aval').value);
+  var output = document.getElementById('aval-or-morkab');
 
-  // بررسی اینکه آیا عدد وارد شده معتبر است یا خیر
   if (isNaN(aval)) {
-    document.getElementById("aval-or-morkab").innerHTML =
-      "لطفاً یک عدد وارد کنید";
+    output.innerHTML = 'لطفاً یک عدد وارد کنید';
     return;
   }
 
@@ -109,37 +108,31 @@ function aval() {
     }
   }
   if (aval <= 1) {
-    document.getElementById("aval-or-morkab").innerHTML =
-      "فقط اعداد طبیعی بزرگ تر از ۱";
+    output.innerHTML = 'فقط اعداد طبیعی بزرگ تر از ۱';
   } else if (count == 2) {
-    document.getElementById("aval-or-morkab").innerHTML = "اول است";
+    output.innerHTML = 'اول است';
   } else {
-    document.getElementById("aval-or-morkab").innerHTML = "مرکب است";
+    output.innerHTML = 'مرکب است';
   }
 }
 
 function far_to_cel() {
-  // دریافت مقدار ورودی
-  let f = parseFloat(document.getElementById("to_celsius").value);
+  let f = parseFloat(document.getElementById('to_celsius').value);
+  var output = document.getElementById('far_to_celsius');
 
-  // بررسی اینکه آیا ورودی معتبر است
   if (isNaN(f)) {
-    document.getElementById("far_to_celsius").innerHTML =
-      "لطفاً یک عدد وارد کنید.";
+    output.innerHTML = 'لطفاً یک عدد وارد کنید.';
     return;
   }
 
-  // تبدیل فارنهایت به سانتی‌گراد
   let c = (5 / 9) * (f - 32);
-
-  // نمایش نتیجه به همراه دو رقم اعشار
-  document.getElementById("far_to_celsius").innerHTML = `${c.toFixed(2)} °C`;
+  output.innerHTML = `${c.toFixed(2)} °C`;
 
   if (c <= 0) {
-    document.getElementById("far_to_celsius").style.color = "#4682B4";
+    output.style.color = '#4682B4';
   } else if (c > 30) {
-    document.getElementById("far_to_celsius").style.color = "#FF4500";
+    output.style.color = '#FF4500';
   } else {
-    document.getElementById("far_to_celsius").style.color = "black";
+    output.style.color = 'black';
   }
 }

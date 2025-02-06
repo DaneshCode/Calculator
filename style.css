@@ -1,10 +1,105 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8e8e8;
+  color: black;
+  margin: auto;
+  text-align: center;
+  font-family: 'B-nazanin';
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+}
+
+#themeButton_1,
+#themeButton_2 {
+  position: absolute;
+  font-size: xx-small;
+  top: 2px;
+  padding: 5px;
+}
+
+#themeButton_1 {
+  left: 2px;
+}
+
+#themeButton_2 {
+  left: 40px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  footer {
+    margin-top: 7rem;
+    transition: margin-top 0.3s ease;
+  }
+}
+
+@media (max-width: 300px) {
+  footer {
+    flex-direction: column;
+  }
+}
+
+h1:before,
+h1:after,
+h3:before,
+h3:after {
+  content: ' | ';
+  color: red;
+}
+
+button,
+a.button {
+  background-color: #444141;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+button:hover,
+a.button:hover {
+  background-image: linear-gradient(
+    90deg,
+    #6a3093 0%,
+    #a044ff 50%,
+    #1f4037 75%,
+    #6a3093 100%
+  );
+  animation: slidernbw 5s linear infinite;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+}
+
+@keyframes slidernbw {
+  to {
+    background-position: 20vw;
+  }
 }
 
 output {
-  font-size: 30px;
+  font-size: 1.5rem;
   color: #000000;
+  margin: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 input {
@@ -16,9 +111,19 @@ input {
   max-width: 190px;
   font-size: large;
   margin: 1rem;
+  text-align: center;
+  direction: ltr;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  direction: rtl;
+  text-align: right;
 }
 
 .adad-aval {
+  font-size: 1.5rem;
+  margin: 3rem;
   margin-top: 3rem;
 }
 
@@ -29,13 +134,11 @@ input {
 
 #far_to_celsius {
   direction: ltr;
+  font-size: 1.5rem;
+  margin-top: 2rem;
 }
 
 .far_to_cel {
   margin-top: 3rem;
-}
-
-.far_to_celsius {
   font-size: 1.5rem;
-  margin: 3rem;
 }
