@@ -9,7 +9,10 @@ This project is a simple web calculator built using HTML, CSS, and JavaScript. I
 - 🌡️ **Temperature Conversion:** Convert Fahrenheit to Celsius
 - 🌗 **Light and Dark Theme:** Toggle between light and dark modes for user comfort
 
-## 🛠️ Usage
-1. Open the `https://daneshcode.github.io/Calculator/` file in your browser.
+## 💻 Live Demo
+You can view the live demo of the calculator by clicking the link below:
+
+[🔗 Open the Calculator](https://daneshcode.github.io/Calculator)
+
 2. Use the buttons to input numbers and perform various operations.
 3. Results will be displayed on the same page.
