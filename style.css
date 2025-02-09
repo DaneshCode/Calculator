@@ -12,6 +12,26 @@ body {
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
 }
 
+/* Dark Theme Styles */
+body.dark-theme {
+  background-color: #353535;
+  color: #ffffff;
+}
+body.dark-theme input,
+body.dark-theme output,
+body.dark-theme h1,
+body.dark-theme h3,
+body.dark-theme button,
+body.dark-theme a.button {
+  color: #ffffff;
+}
+
+/* تغییر رنگ اسپینرها در تم تاریک */
+body.dark-theme input[type='number']::-webkit-inner-spin-button,
+body.dark-theme input[type='number']::-webkit-outer-spin-button {
+  filter: invert(1);
+}
+
 #themeButton_1,
 #themeButton_2 {
   position: absolute;
