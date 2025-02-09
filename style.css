@@ -143,22 +143,20 @@ input::placeholder {
 
 .adad-aval {
   font-size: 1.5rem;
-  margin: 3rem;
   margin-top: 3rem;
 }
 
 .aval-or-morkab {
   font-size: 1.5rem;
-  margin: 3rem;
+  margin: 2rem;
 }
 
 #far_to_celsius {
   direction: ltr;
   font-size: 1.5rem;
-  margin-top: 2rem;
+  margin: 2rem;
 }
 
 .far_to_cel {
-  margin-top: 3rem;
   font-size: 1.5rem;
 }
