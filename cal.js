@@ -1,15 +1,40 @@
-function dark() {
-  document.body.classList.add('dark-theme');
-}
+function toggleTheme() {
+  const button = document.getElementById('themeButton');
+  const icon = button.querySelector('i');
 
-function white() {
-  document.body.classList.remove('dark-theme');
+  if (document.body.classList.toggle('dark-theme')) {
+    icon.className = 'uil uil-sun';
+    button.title = 'تغییر به تم روشن';
+  } else {
+    icon.className = 'uil uil-moon';
+    button.title = 'تغییر به تم تاریک';
+  }
 }
 
 const updateElementColor = (id, color) => {
   document.getElementById(id)?.style &&
     (document.getElementById(id).style.color = color);
 };
+
+
+function updateDateTime() {
+  const output = document.getElementById('date');
+  if (!output) return;
+
+  const now = new Date();
+  output.innerHTML = now.toLocaleString('fa-IR', {
+    numberingSystem: 'latn',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  }).replace(',', '<br>');
+}
+
+// Update every second instead of every frame
+setInterval(updateDateTime, 1000);
 
 function calculator(op) {
   const n1 = parseFloat(document.getElementById('n1').value);
@@ -104,7 +129,7 @@ function far_to_cel() {
   const output = document.getElementById('far_to_celsius');
 
   if (isNaN(f)) {
-    output.innerHTML = 'لطفاً یک عدد وارد کنید.';
+    output.innerHTML = 'لطفاً یک عدد وارد کنید';
     return;
   }
 
@@ -118,4 +143,22 @@ function far_to_cel() {
   } else {
     output.style.color = 'black';
   }
+}
+
+function random() {
+  const min = parseInt(document.getElementById('rand1').value);
+  const max = parseInt(document.getElementById('rand2').value);
+  const output = document.getElementById('random');
+
+  if (isNaN(min) || isNaN(max)) {
+    output.innerHTML = 'لطفاً دو عدد وارد کنید';
+    return;
+  }
+
+  if (min >= max) {
+    output.innerHTML = 'حداقل باید کمتر از حداکثر باشد';
+    return;
+  }
+
+  output.innerHTML = Math.floor(Math.random() * (max - min + 1)) + min;
 }

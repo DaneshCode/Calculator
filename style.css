@@ -32,20 +32,79 @@ body.dark-theme input[type='number']::-webkit-outer-spin-button {
   filter: invert(1);
 }
 
-#themeButton_1,
-#themeButton_2 {
+/* حذف استایل‌های themeButton_1 و themeButton_2 */
+
+#themeButton {
   position: absolute;
-  font-size: xx-small;
-  top: 2px;
-  padding: 5px;
+  font-size: medium;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 8px;
+  transition: all 0.3s ease;
 }
 
-#themeButton_1 {
-  left: 2px;
+#date {
+  position: absolute;
+  font-size: 0.9rem;
+  top: 0.5rem;
+  right: 0.5rem;
+  text-align: center;
 }
 
-#themeButton_2 {
-  left: 40px;
+#date:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.calculator {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 5rem 2rem 2rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.mazrab {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2rem;
+  transition: all 0.3s ease;
+}
+
+.adad-aval {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2rem;
+  transition: all 0.3s ease;
+}
+
+.aval-or-morkab {
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+
+.far_to_cel {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2rem;
+  transition: all 0.3s ease;
+}
+
+#far_to_celsius {
+  direction: ltr;
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+
+.random {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2rem;
+  transition: all 0.3s ease;
 }
 
 footer {
@@ -53,6 +112,13 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 1900px) {
+  footer {
+    margin-top: 5rem;
+    transition: margin-top 0.3s ease;
+  }
 }
 
 @media (max-width: 600px) {
@@ -64,6 +130,7 @@ footer {
 
 @media (max-width: 300px) {
   footer {
+    margin-top: 3rem;
     flex-direction: column;
   }
 }
@@ -139,24 +206,4 @@ input {
 input::placeholder {
   direction: rtl;
   text-align: right;
-}
-
-.adad-aval {
-  font-size: 1.5rem;
-  margin-top: 3rem;
-}
-
-.aval-or-morkab {
-  font-size: 1.5rem;
-  margin: 2rem;
-}
-
-#far_to_celsius {
-  direction: ltr;
-  font-size: 1.5rem;
-  margin: 2rem;
-}
-
-.far_to_cel {
-  font-size: 1.5rem;
 }

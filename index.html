@@ -14,12 +14,10 @@
 
   <body>
     <header>
-      <button id="themeButton_1" title="تغییر به صفحه تیره" onclick="dark()">
-        Dark
+      <button id="themeButton" title="تغییر تم" onclick="toggleTheme()">
+        <i class="uil uil-moon"></i>
       </button>
-      <button id="themeButton_2" title="تغییر به صفحه روشن" onclick="white()">
-        white
-      </button>
+      <button id="date"></button>
     </header>
     <div class="calculator">
       <h1>ماشین حساب</h1>
@@ -27,8 +25,9 @@
       <input id="n1" type="number" placeholder=" : عدد بده" />
       <output id="sign">?</output>
       <input id="n2" type="number" placeholder=" : عدد بعدی بده" />
-      <output id="output">=</output>
+      <output id="output">=</output><br />
       <output id="javab">javab</output>
+      <br /><br /><br /><br />
       <div>
         <button type="button" title="جمع" onclick="calculator('+')">
           <i class="uil-plus"></i>
@@ -47,25 +46,39 @@
       <input id="n3" type="number" placeholder=" : عدد بده" />
       <input id="n4" type="number" placeholder=" : مضرب از" />
       <input id="n5" type="number" placeholder=" : مضرب تا" />
-      <button type="button" title="اجرا" onclick="mazrab()">اجرا</button>
+      <br /><button type="button" title="اجرا" onclick="mazrab()">اجرا</button
+      ><br />
 
       <p id="res"></p>
       <p id="result"></p>
     </div>
     <div class="adad-aval">
-      <input id="aval" type="number" placeholder="این عدد اول هست یا مرکب؟" />
-      <button type="button" title="اجرا" onclick="aval()">اجرا</button>
+      <input
+        id="aval"
+        type="number"
+        placeholder="این عدد اول هست یا مرکب؟"
+      /><br />
+      <button type="button" title="اجرا" onclick="aval()">اجرا</button><br />
+      <div class="aval-or-morkab" id="aval-or-morkab"></div>
     </div>
-    <div class="aval-or-morkab" id="aval-or-morkab"></div>
 
     <div class="far_to_cel">
       <input
         id="to_celsius"
         type="number"
         placeholder="تبدیل فارنهایت به سانتی گراد"
-      />
-      <button type="button" title="اجرا" onclick="far_to_cel()">اجرا</button>
+      /><br />
+      <button type="button" title="اجرا" onclick="far_to_cel()">اجرا</button
+      ><br />
       <div id="far_to_celsius"></div>
+    </div>
+
+    <div class="random">
+      <input type="number" id="rand1" placeholder=": عدد رندوم از" />
+      <input id="rand2" type="number" placeholder=": عدد رندوم تا" /><br />
+      <button type="button" title="اجرا" onclick="random()">اجرا</button
+      ><br /><br />
+      <output id="random"></output>
     </div>
 
     <footer>
@@ -118,6 +131,7 @@
         <i class="uil uil-print"></i>
       </button>
     </footer>
+    <br /><br /><br /><br />
     <script src="./cal.js"></script>
   </body>
 </html>
