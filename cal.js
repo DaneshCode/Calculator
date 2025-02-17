@@ -16,21 +16,22 @@ const updateElementColor = (id, color) => {
     (document.getElementById(id).style.color = color);
 };
 
-
 function updateDateTime() {
   const output = document.getElementById('date');
   if (!output) return;
 
   const now = new Date();
-  output.innerHTML = now.toLocaleString('fa-IR', {
-    numberingSystem: 'latn',
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  }).replace(',', '<br>');
+  output.innerHTML = now
+    .toLocaleString('fa-IR', {
+      numberingSystem: 'latn',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    })
+    .replace(',', '<br>');
 }
 
 // Update every second instead of every frame
@@ -141,7 +142,7 @@ function far_to_cel() {
   } else if (c > 30) {
     output.style.color = '#FF4500';
   } else {
-    output.style.color = 'black';
+    output.style.color = 'green';
   }
 }
 
