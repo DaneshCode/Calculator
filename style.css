@@ -207,3 +207,20 @@ input::placeholder {
   direction: rtl;
   text-align: right;
 }
+
+.made {
+
+  text-align: center;
+}
+
+.made a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.3rem;
+}
+
+.made a:hover {
+  color: #4f51e5;
+  text-decoration: underline;
+}
