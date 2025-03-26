@@ -1,29 +1,25 @@
+// Function to toggle between light and dark themes
 function toggleTheme() {
   const button = document.getElementById('themeButton');
   const icon = button.querySelector('i');
 
   if (document.body.classList.toggle('dark-theme')) {
     icon.className = 'uil uil-sun';
-    button.title = 'تغییر به تم روشن';
+    button.title = 'Switch to Light Theme';
   } else {
     icon.className = 'uil uil-moon';
-    button.title = 'تغییر به تم تاریک';
+    button.title = 'Switch to Dark Theme';
   }
 }
 
-const updateElementColor = (id, color) => {
-  document.getElementById(id)?.style &&
-    (document.getElementById(id).style.color = color);
-};
-
+// Function to update and display current date and time
 function updateDateTime() {
   const output = document.getElementById('date');
   if (!output) return;
 
   const now = new Date();
   output.innerHTML = now
-    .toLocaleString('fa-IR', {
-      numberingSystem: 'latn',
+    .toLocaleString('en-US', {
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
@@ -34,42 +30,41 @@ function updateDateTime() {
     .replace(',', '<br>');
 }
 
-// Update every second instead of every frame
+// Update datetime every second
 setInterval(updateDateTime, 1000);
 
+// Function to perform basic arithmetic operations
 function calculator(op) {
   const n1 = parseFloat(document.getElementById('n1').value);
   const n2 = parseFloat(document.getElementById('n2').value);
   const sign = document.getElementById('sign');
-  const javab = document.getElementById('javab');
+  const answer = document.getElementById('answer');
 
   sign.innerHTML = op;
 
   switch (op) {
     case '+':
-      javab.textContent = n1 + n2;
+      answer.textContent = n1 + n2;
       break;
     case '-':
-      javab.textContent = n1 - n2;
+      answer.textContent = n1 - n2;
       break;
     case '*':
-      javab.textContent = n1 * n2;
+      answer.textContent = n1 * n2;
       break;
     case '/':
-      javab.textContent = n1 / n2;
+      answer.textContent = n1 / n2;
       break;
     default:
-      javab.textContent = '!عملگر نامعتبر!';
+      answer.textContent = 'Invalid operator!';
       break;
   }
-  changeColor();
+  updateOutputColor('answer');
+  updateInputColor('n1');
+  updateInputColor('n2');
 }
 
-function changeColor() {
-  ['n1', 'n2', 'n3', 'n4', 'n5'].forEach((id) => updateInputColor(id));
-  ['javab', 'res'].forEach((id) => updateOutputColor(id));
-}
-
+// Function to update input field text color based on value
 function updateInputColor(id) {
   const input = document.getElementById(id);
   if (input) {
@@ -77,6 +72,7 @@ function updateInputColor(id) {
   }
 }
 
+// Function to update output text color based on value
 function updateOutputColor(id) {
   const output = document.getElementById(id);
   if (output) {
@@ -84,53 +80,55 @@ function updateOutputColor(id) {
   }
 }
 
-function mazrab() {
+// Function to display multiplication table
+function multiply() {
   const n3 = parseFloat(document.getElementById('n3').value);
   const n4 = parseFloat(document.getElementById('n4').value);
   const n5 = parseFloat(document.getElementById('n5').value);
   const res = document.getElementById('res');
-  const result = document.getElementById('result');
 
   if (n5 < n4) {
-    res.innerHTML = 'خطا ! مضرب نهایی نباید از مضرب اولیه کوچک تر باشد';
+    res.innerHTML =
+      'Error! Final multiple should not be less than initial multiple';
   } else {
     res.innerHTML = '';
+
     for (let i = n4; i <= n5; i++) {
-      res.innerHTML += `<br>${n3 * i}`;
+      res.innerHTML += `${n3 * i}<br>`;
     }
-    result.innerHTML = 'done ! ';
   }
-  changeColor();
 }
 
-function aval() {
-  const aval = parseFloat(document.getElementById('aval').value);
-  const output = document.getElementById('aval-or-morkab');
+// Function to check if a number is prime or composite
+function checkPrime() {
+  const num = parseFloat(document.getElementById('prime').value);
+  const output = document.getElementById('prime-or-composite');
 
-  if (isNaN(aval)) {
-    output.innerHTML = 'لطفاً یک عدد وارد کنید';
+  if (isNaN(num)) {
+    output.innerHTML = 'Please enter a number';
     return;
   }
 
   let count = 0;
-  for (let i = 1; i <= aval; i++) {
-    if (aval % i === 0) count++;
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) count++;
   }
-  if (aval <= 1) {
-    output.innerHTML = 'فقط اعداد طبیعی بزرگ تر از ۱';
+  if (num <= 1) {
+    output.innerHTML = 'Enter a natural number greater than 1';
   } else if (count === 2) {
-    output.innerHTML = 'اول است';
+    output.innerHTML = 'Prime';
   } else {
-    output.innerHTML = 'مرکب است';
+    output.innerHTML = 'Composite';
   }
 }
 
+// Function to convert Fahrenheit to Celsius
 function far_to_cel() {
   const f = parseFloat(document.getElementById('to_celsius').value);
   const output = document.getElementById('far_to_celsius');
 
   if (isNaN(f)) {
-    output.innerHTML = 'لطفاً یک عدد وارد کنید';
+    output.innerHTML = 'Please enter a number';
     return;
   }
 
@@ -146,18 +144,19 @@ function far_to_cel() {
   }
 }
 
+// Function to generate random number between two values
 function random() {
   const min = parseInt(document.getElementById('rand1').value);
   const max = parseInt(document.getElementById('rand2').value);
   const output = document.getElementById('random');
 
   if (isNaN(min) || isNaN(max)) {
-    output.innerHTML = 'لطفاً دو عدد وارد کنید';
+    output.innerHTML = 'Please enter tow number';
     return;
   }
 
   if (min >= max) {
-    output.innerHTML = 'حداقل باید کمتر از حداکثر باشد';
+    output.innerHTML = 'Minimum must be less than Maximum';
     return;
   }
 

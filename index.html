@@ -1,82 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./style.css" />
-    <!--==================== UNICONS ====================-->
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
-    <title>ماشین حساب</title>
+    <title>Calculator</title>
   </head>
 
   <body>
     <header>
-      <button id="themeButton" title="تغییر تم" onclick="toggleTheme()">
+      <button id="themeButton" title="Change Theme" onclick="toggleTheme()">
         <i class="uil uil-moon"></i>
       </button>
       <button id="date"></button>
     </header>
     <div class="calculator">
-      <h1>ماشین حساب</h1>
+      <h2>Calculator</h2>
+      <p>Simple calculator for basic operations</p>
+      <p>Click on the operator to calculate</p>
 
-      <input id="n1" type="number" placeholder=" : عدد بده" />
+      <input id="n1" type="number" placeholder="Enter number" />
       <output id="sign">?</output>
-      <input id="n2" type="number" placeholder=" : عدد بعدی بده" />
+      <input id="n2" type="number" placeholder="Enter next number" />
       <output id="output">=</output><br /><br />
-      <output id="javab">javab</output>
+      <output id="answer">answer</output>
       <br /><br /><br />
       <div>
-        <button type="button" title="جمع" onclick="calculator('+')">
+        <button type="button" title="Add" onclick="calculator('+')">
           <i class="uil-plus"></i>
         </button>
-        <button type="button" title="تفریق" onclick="calculator('-')">
+        <button type="button" title="Subtract" onclick="calculator('-')">
           <i class="uil uil-minus"></i>
         </button>
-        <button type="button" title="ضرب" onclick="calculator('*')">
+        <button type="button" title="Multiply" onclick="calculator('*')">
           <i class="uil uil-multiply"></i>
         </button>
-        <button type="button" title="تقسیم" onclick="calculator('/')">/</button>
+        <button type="button" title="Divide" onclick="calculator('/')">
+          /
+        </button>
       </div>
     </div>
 
-    <div class="mazrab">
-      <input id="n3" type="number" placeholder=" : عدد بده" />
-      <input id="n4" type="number" placeholder=" : مضرب از" />
-      <input id="n5" type="number" placeholder=" : مضرب تا" />
-      <br /><button type="button" title="اجرا" onclick="mazrab()">اجرا</button
+    <div class="multiplier">
+      <h2>Multiplier</h2>
+      <p>Multiply a number by a range of numbers</p>
+      <input id="n3" type="number" placeholder="Enter number" />
+      <input id="n4" type="number" placeholder="Multiply from" />
+      <input id="n5" type="number" placeholder="Multiply to" />
+      <br /><button type="button" title="Execute" onclick="multiply()">
+        Execute</button
       ><br />
 
-      <p id="res"></p>
-      <p id="result"></p>
-    </div>
-    <div class="adad-aval">
-      <input
-        id="aval"
-        type="number"
-        placeholder="این عدد اول هست یا مرکب؟"
-      /><br />
-      <button type="button" title="اجرا" onclick="aval()">اجرا</button><br />
-      <div class="aval-or-morkab" id="aval-or-morkab"></div>
+      <output id="res"></output>
     </div>
 
-    <div class="far_to_cel">
+    <div class="prime-check">
+      <h2>Prime or Composite</h2>
+      <p>Check if a number is prime or composite</p>
+      <input id="prime" type="number" placeholder="prime or composite?" /><br />
+      <button type="button" title="Check" onclick="checkPrime()">Check</button
+      ><br />
+      <output class="prime-or-composite" id="prime-or-composite"></output>
+    </div>
+
+    <div class="fahrenheit-to-celsius">
+      <h2>Fahrenheit to Celsius</h2>
+      <p>Convert Fahrenheit to Celsius</p>
       <input
         id="to_celsius"
         type="number"
-        placeholder="تبدیل فارنهایت به سانتی گراد"
+        placeholder="Fahrenheit to Celsius"
       /><br />
-      <button type="button" title="اجرا" onclick="far_to_cel()">اجرا</button
+      <button type="button" title="Convert" onclick="far_to_cel()">
+        Convert</button
       ><br />
-      <div id="far_to_celsius"></div>
+      <output id="far_to_celsius"></output>
     </div>
 
     <div class="random">
-      <input type="number" id="rand1" placeholder=": عدد رندوم از" />
-      <input id="rand2" type="number" placeholder=": عدد رندوم تا" /><br />
-      <button type="button" title="اجرا" onclick="random()">اجرا</button
+      <h2>Random Number Generator</h2>
+      <p>Generate a random number between two numbers</p>
+      <input type="number" id="rand1" placeholder="Random from" />
+      <input id="rand2" type="number" placeholder="Random to" /><br />
+      <button type="button" title="Generate" onclick="random()">Generate</button
       ><br /><br />
       <output id="random"></output>
     </div>
@@ -86,17 +96,16 @@
         id="4"
         href="mailto:DaneshCode.Dev@gmail.com"
         class="button"
-        title="ایمیل"
+        title="Email"
         target="_blank"
         ><i class="uil uil-envelope contact__icon"></i
       ></a>
       |
-
       <a
         id="7"
         href="https://linkedin.com/in/DaneshCode"
         class="button"
-        title="لینکدین"
+        title="LinkedIn"
         target="_blank"
         ><i class="uil uil-linkedin"></i
       ></a>
@@ -104,13 +113,12 @@
       <a
         href="https://github.com/DaneshCode"
         class="button"
-        title=" گیت هاب "
+        title="GitHub"
         target="_blank"
-      >
-        <i class="uil uil-github"></i> </a
-      >|
-
-      <button title="پرینت از صفحه" onclick="window.print()">
+        ><i class="uil uil-github"></i
+      ></a>
+      |
+      <button title="Print Page" onclick="window.print()">
         <i class="uil uil-print"></i>
       </button>
     </footer>

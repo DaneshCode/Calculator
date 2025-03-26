@@ -1,38 +1,27 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #e8e8e8;
-  color: black;
-  margin: auto;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #2d3436;
+  margin: 5rem auto auto auto;
   text-align: center;
-  font-family: 'B-nazanin';
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  min-height: 100vh;
 }
-
 /* Dark Theme Styles */
 body.dark-theme {
-  background-color: #353535;
-  color: #ffffff;
-}
-body.dark-theme input,
-body.dark-theme output,
-body.dark-theme h1,
-body.dark-theme h3,
-body.dark-theme button,
-body.dark-theme a.button {
-  color: #ffffff;
+  background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+  color: #dfe6e9;
 }
 
-/* تغییر رنگ اسپینرها در تم تاریک */
+/* Change the color of spinners in dark theme */
 body.dark-theme input[type='number']::-webkit-inner-spin-button,
 body.dark-theme input[type='number']::-webkit-outer-spin-button {
   filter: invert(1);
 }
-
-/* حذف استایل‌های themeButton_1 و themeButton_2 */
 
 #themeButton {
   position: absolute;
@@ -56,55 +45,59 @@ body.dark-theme input[type='number']::-webkit-outer-spin-button {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.calculator {
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  padding: 2rem;
-  margin: 5rem 2rem 2rem 2rem;
-  transition: all 0.3s ease;
-}
-
-.mazrab {
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  padding: 2rem;
-  margin: 2rem;
-  transition: all 0.3s ease;
-}
-
-.adad-aval {
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  padding: 2rem;
-  margin: 2rem;
-  transition: all 0.3s ease;
-}
-
-.aval-or-morkab {
+output {
   font-size: 1.5rem;
-  margin: 2rem;
+  color: #6c5ce7;
+  margin: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.far_to_cel {
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  padding: 2rem;
-  margin: 2rem;
-  transition: all 0.3s ease;
-}
-
-#far_to_celsius {
+input {
+  color: #6c5ce7;
+  border: 2px solid #a29bfe;
+  border-radius: 15px;
+  padding: 12px 25px;
+  background: rgba(108, 92, 231, 0);
+  backdrop-filter: blur(5px);
+  max-width: 190px;
+  font-size: large;
+  margin: 1rem;
+  text-align: center;
   direction: ltr;
-  font-size: 1.5rem;
-  margin: 2rem;
+  transition: all 0.4s ease;
 }
 
+input:focus {
+  outline: none;
+  border-color: #6c5ce7;
+  box-shadow: 0 0 20px rgba(108, 92, 231, 0.3);
+  transform: translateY(-2px);
+}
+
+.calculator,
+.multiplier,
+.prime-check,
+.fahrenheit-to-celsius,
 .random {
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   margin: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.calculator:hover,
+.multiplier:hover,
+.prime-check:hover,
+.fahrenheit-to-celsius:hover,
+.random:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -112,6 +105,22 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.made {
+  text-align: center;
+}
+
+.made a {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.3rem;
+}
+
+.made a:hover {
+  color: #4f51e5;
+  text-decoration: underline;
 }
 
 @media (max-width: 1900px) {
@@ -135,92 +144,27 @@ footer {
   }
 }
 
-h1:before,
-h1:after,
-h3:before,
-h3:after {
-  content: ' | ';
-  color: red;
-}
-
 button,
 a.button {
-  background-color: #444141;
-  border-radius: 10px;
+  background: linear-gradient(45deg, #6c5ce7, #a29bfe);
+  border-radius: 15px;
   color: #fff;
   cursor: pointer;
-  padding: 10px;
-  margin: 5px;
+  padding: 12px 25px;
+  margin: 8px;
   font-size: 16px;
   border: none;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
   text-align: center;
+  font-weight: 500;
 }
 
 button:hover,
 a.button:hover {
-  background-image: linear-gradient(
-    90deg,
-    #6a3093 0%,
-    #a044ff 50%,
-    #1f4037 75%,
-    #6a3093 100%
-  );
-  animation: slidernbw 5s linear infinite;
-  color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  transform: scale(1.1);
-}
-
-@keyframes slidernbw {
-  to {
-    background-position: 20vw;
-  }
-}
-
-output {
-  font-size: 1.5rem;
-  color: #000000;
-  margin: 1rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-input {
-  color: #8707ff;
-  border: 2px solid #8707ff;
-  border-radius: 10px;
-  padding: 10px 25px;
-  background: transparent;
-  max-width: 190px;
-  font-size: large;
-  margin: 1rem;
-  text-align: center;
-  direction: ltr;
-  transition: all 0.3s ease;
-}
-
-input::placeholder {
-  direction: rtl;
-  text-align: right;
-}
-
-.made {
-
-  text-align: center;
-}
-
-.made a {
-  color: #6366f1;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.3rem;
-}
-
-.made a:hover {
-  color: #4f51e5;
-  text-decoration: underline;
+  background: linear-gradient(45deg, #a29bfe, #6c5ce7);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.5);
 }
