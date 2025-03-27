@@ -18,29 +18,39 @@ function updateDateTime() {
   if (!output) return;
 
   const now = new Date();
-  output.innerHTML = now
+  output.textContent = now
     .toLocaleString('en-US', {
+      weekday: 'long', // Full weekday name
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
+      hour12: false, // 24-hour format
     })
-    .replace(',', '<br>');
+    .replace(/, /g, '\n'); // Replace comma with newline
 }
 
-// Update datetime every second
+// Set interval to update date and time every second
 setInterval(updateDateTime, 1000);
 
-// Function to perform basic arithmetic operations
+// Initial call to display date and time immediately
+updateDateTime();
+
+// Function to perform arithmetic operations
 function calculator(op) {
   const n1 = parseFloat(document.getElementById('n1').value);
   const n2 = parseFloat(document.getElementById('n2').value);
   const sign = document.getElementById('sign');
   const answer = document.getElementById('answer');
 
-  sign.innerHTML = op;
+  if (isNaN(n1) || isNaN(n2)) {
+    answer.textContent = 'Enter valid numbers!';
+    return;
+  }
+
+  sign.textContent = op;
 
   switch (op) {
     case '+':
@@ -53,15 +63,23 @@ function calculator(op) {
       answer.textContent = n1 * n2;
       break;
     case '/':
-      answer.textContent = n1 / n2;
+      answer.textContent =
+        n2 !== 0 ? (n1 / n2).toFixed(2) : 'Cannot divide by zero!';
       break;
     default:
       answer.textContent = 'Invalid operator!';
-      break;
   }
   updateOutputColor('answer');
   updateInputColor('n1');
   updateInputColor('n2');
+}
+
+// Function to reset fields
+function resetCalculator() {
+  document.getElementById('n1').value = '';
+  document.getElementById('n2').value = '';
+  document.getElementById('sign').textContent = '?';
+  document.getElementById('answer').textContent = 'answer';
 }
 
 // Function to update input field text color based on value
@@ -87,16 +105,27 @@ function multiply() {
   const n5 = parseFloat(document.getElementById('n5').value);
   const res = document.getElementById('res');
 
+  if (isNaN(n3) || isNaN(n4) || isNaN(n5)) {
+    res.textContent = 'Please complete all fields';
+    return;
+  }
   if (n5 < n4) {
-    res.innerHTML =
+    res.textContent =
       'Error! Final multiple should not be less than initial multiple';
   } else {
-    res.innerHTML = '';
-
+    const results = [];
     for (let i = n4; i <= n5; i++) {
-      res.innerHTML += `${n3 * i}<br>`;
+      results.push(`${n3} × ${i} = ${n3 * i}`);
     }
+    res.textContent = results.join('\n'); // Join results with newline
   }
+}
+
+function resetMultiplier() {
+  document.getElementById('n3').value = '';
+  document.getElementById('n4').value = '';
+  document.getElementById('n5').value = '';
+  document.getElementById('res').textContent = 'answer';
 }
 
 // Function to check if a number is prime or composite
@@ -105,7 +134,7 @@ function checkPrime() {
   const output = document.getElementById('prime-or-composite');
 
   if (isNaN(num)) {
-    output.innerHTML = 'Please enter a number';
+    output.textContent = 'Please enter a number';
     return;
   }
 
@@ -114,11 +143,11 @@ function checkPrime() {
     if (num % i === 0) count++;
   }
   if (num <= 1) {
-    output.innerHTML = 'Enter a natural number greater than 1';
+    output.textContent = 'Enter a natural number greater than 1';
   } else if (count === 2) {
-    output.innerHTML = 'Prime';
+    output.textContent = 'Prime';
   } else {
-    output.innerHTML = 'Composite';
+    output.textContent = 'Composite';
   }
 }
 
@@ -128,12 +157,12 @@ function far_to_cel() {
   const output = document.getElementById('far_to_celsius');
 
   if (isNaN(f)) {
-    output.innerHTML = 'Please enter a number';
+    output.textContent = 'Please enter a number';
     return;
   }
 
   const c = (5 / 9) * (f - 32);
-  output.innerHTML = `${c.toFixed(2)} °C`;
+  output.textContent = `${c.toFixed(2)} °C`;
 
   if (c <= 0) {
     output.style.color = '#4682B4';
@@ -151,14 +180,20 @@ function random() {
   const output = document.getElementById('random');
 
   if (isNaN(min) || isNaN(max)) {
-    output.innerHTML = 'Please enter tow number';
+    output.textContent = 'Please enter tow number';
     return;
   }
 
   if (min >= max) {
-    output.innerHTML = 'Minimum must be less than Maximum';
+    output.textContent = 'Minimum must be less than Maximum';
     return;
   }
 
-  output.innerHTML = Math.floor(Math.random() * (max - min + 1)) + min;
+  output.textContent = Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function resetRandom() {
+  document.getElementById('rand1').value = '';
+  document.getElementById('rand2').value = '';
+  document.getElementById('random').textContent = 'answer';
 }

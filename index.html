@@ -18,6 +18,7 @@
       </button>
       <button id="date"></button>
     </header>
+
     <div class="calculator">
       <h2>Calculator</h2>
       <p>Simple calculator for basic operations</p>
@@ -26,12 +27,14 @@
       <input id="n1" type="number" placeholder="Enter number" />
       <output id="sign">?</output>
       <input id="n2" type="number" placeholder="Enter next number" />
-      <output id="output">=</output><br /><br />
+      <output id="output">=</output>
+
       <output id="answer">answer</output>
-      <br /><br /><br />
+      <br />
+
       <div>
         <button type="button" title="Add" onclick="calculator('+')">
-          <i class="uil-plus"></i>
+          <i class="uil uil-plus"></i>
         </button>
         <button type="button" title="Subtract" onclick="calculator('-')">
           <i class="uil uil-minus"></i>
@@ -42,6 +45,15 @@
         <button type="button" title="Divide" onclick="calculator('/')">
           /
         </button>
+
+        <button
+          type="button"
+          class="reset"
+          title="Clear"
+          onclick="resetCalculator()"
+        >
+          AC
+        </button>
       </div>
     </div>
 
@@ -51,20 +63,32 @@
       <input id="n3" type="number" placeholder="Enter number" />
       <input id="n4" type="number" placeholder="Multiply from" />
       <input id="n5" type="number" placeholder="Multiply to" />
-      <br /><button type="button" title="Execute" onclick="multiply()">
-        Execute</button
-      ><br />
+      <button
+        style="display: inline-block"
+        type="button"
+        title="Execute"
+        onclick="multiply()"
+      >
+        Execute
+      </button>
 
-      <output id="res"></output>
+      <output id="res">answer</output>
+      <button
+        style="display: inline-block"
+        type="button"
+        title="Clear"
+        onclick="resetMultiplier()"
+      >
+        Clear
+      </button>
     </div>
 
     <div class="prime-check">
       <h2>Prime or Composite</h2>
       <p>Check if a number is prime or composite</p>
       <input id="prime" type="number" placeholder="prime or composite?" /><br />
-      <button type="button" title="Check" onclick="checkPrime()">Check</button
-      ><br />
-      <output class="prime-or-composite" id="prime-or-composite"></output>
+      <button type="button" title="Check" onclick="checkPrime()">Check</button>
+      <output class="prime-or-composite" id="prime-or-composite">answer</output>
     </div>
 
     <div class="fahrenheit-to-celsius">
@@ -76,9 +100,9 @@
         placeholder="Fahrenheit to Celsius"
       /><br />
       <button type="button" title="Convert" onclick="far_to_cel()">
-        Convert</button
-      ><br />
-      <output id="far_to_celsius"></output>
+        Convert
+      </button>
+      <output id="far_to_celsius">answer</output>
     </div>
 
     <div class="random">
@@ -86,9 +110,11 @@
       <p>Generate a random number between two numbers</p>
       <input type="number" id="rand1" placeholder="Random from" />
       <input id="rand2" type="number" placeholder="Random to" /><br />
-      <button type="button" title="Generate" onclick="random()">Generate</button
-      ><br /><br />
-      <output id="random"></output>
+      <button type="button" title="Generate" onclick="random()">
+        Generate
+      </button>
+      <output id="random">answer</output>
+      <button type="button" title="Clear" onclick="resetRandom()">Clear</button>
     </div>
 
     <footer>
@@ -128,7 +154,7 @@
         >Danesh</a
       >
     </p>
-    <br /><br />
+
     <script src="./cal.js"></script>
   </body>
 </html>
